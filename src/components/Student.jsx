@@ -1,17 +1,36 @@
-import React from 'react'
+import React, { useState } from 'react';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import Typography from '@mui/material/Typography';
-const Student = ({student}) => {
+import Button from '@mui/material/Button';
+
+const Student = ({ student }) => {
+  const [Status, setStatus] = useState('');
+
+  const handleStatus = () => {
+    setStatus('Present');
+  };
+
   return (
-     <Card sx={{ margin: 1 }}>
+    <Card sx={{ margin: 1 }}>
       <CardContent>
-        <Typography data-testid="student-info">
+        <Typography>
           {student.name} - {student.grade}
         </Typography>
+        <Typography variant="body2" color="text.secondary">
+          Attendance Status: {Status || 'Absent'}
+        </Typography>
+        <Button
+          variant="contained"
+          onClick={handleStatus}
+          disabled={Status === 'Present'}
+          sx={{ mt: 2 }}
+        >
+          Mark as Present
+        </Button>
       </CardContent>
     </Card>
-  )
-}
+  );
+};
 
-export default Student
+export default Student;
