@@ -20,9 +20,15 @@ const Student = ({ student }) => {
         <Typography variant="body2" color="text.secondary">
           Attendance Status: {Status || 'Absent'}
         </Typography>
+<<<<<<< HEAD
         <Button
           variant="contained"
           onClick={handleStatus}
+=======
+        <Button 
+          variant="contained" 
+          onClick={handleStatus} 
+>>>>>>> d4d00d9ba8a5303de6517dafbe2750569b1fc6c9
           disabled={Status === 'Present'}
           sx={{ mt: 2 }}
         >
